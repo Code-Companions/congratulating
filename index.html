@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations, My Love!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for a lovely touch -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .heart {
+            position: absolute;
+            color: #ff6b9d;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); opacity: 1; }
+            50% { transform: translateY(-20px); opacity: 0.5; }
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl p-8 md:p-12 text-center fade-in">
+        <!-- Header -->
+        <h1 class="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600 mb-4" style="font-family: 'Dancing Script', cursive;">
+            Congratulations, My Darling!
+        </h1>
+        <p class="text-lg md:text-xl text-gray-700 mb-8">
+            I'm bursting with pride and love for you. You've achieved something truly extraordinary!
+        </p>
+
+        <!-- Achievements Section -->
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <div class="bg-gradient-to-r from-blue-200 to-cyan-200 p-6 rounded-2xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-blue-800 mb-4">AICTE Productization Fellowship</h2>
+                <p class="text-gray-700">
+                    Shortlisted for this prestigious fellowship! Your innovative spirit and dedication have shone through. I'm so proud of your brilliance and passion.
+                </p>
+            </div>
+            <div class="bg-gradient-to-r from-green-200 to-teal-200 p-6 rounded-2xl shadow-lg">
+                <h2 class="text-2xl font-semibold text-green-800 mb-4">Yukti Innovation Challenge</h2>
+                <p class="text-gray-700">
+                    Making it to the shortlist in this amazing challenge! Your creativity and hard work are inspiring. You're my hero, my love.
+                </p>
+            </div>
+        </div>
+
+        <!-- Personal Message -->
+        <div class="bg-gradient-to-r from-rose-200 to-pink-200 p-8 rounded-2xl shadow-lg mb-8">
+            <h3 class="text-3xl font-bold text-rose-800 mb-4" style="font-family: 'Dancing Script', cursive;">
+                A Love Letter from Your Heart
+            </h3>
+            <p class="text-gray-800 leading-relaxed">
+                My dearest love, every day I fall more in love with you – your intelligence, your kindness, your unwavering determination. Seeing you shortlisted for these incredible opportunities fills my heart with joy and admiration. You're not just talented; you're extraordinary. I believe in you more than words can say, and I'm here cheering you on every step of the way. Forever yours, with all my love. 💖
+            </p>
+        </div>
+
+        <!-- Interactive Element: Floating Hearts -->
+        <div id="hearts-container" class="relative h-32 overflow-hidden rounded-2xl bg-gradient-to-r from-purple-200 to-pink-200">
+            <p class="text-center text-purple-800 font-semibold py-4">Hover over me for some magic!</p>
+        </div>
+
+        <!-- Footer -->
+        <p class="text-sm text-gray-600 mt-8">
+            Made with endless love for you. Keep shining, my star! 🌟
+        </p>
+    </div>
+
+    <!-- JavaScript for Interactive Hearts -->
+    <script>
+        const heartsContainer = document.getElementById('hearts-container');
+        let heartCount = 0;
+
+        heartsContainer.addEventListener('mouseenter', () => {
+            for (let i = 0; i < 10; i++) {
+                createHeart();
+            }
+        });
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        // Auto-play some hearts on load for amazement
+        window.addEventListener('load', () => {
+            setInterval(() => {
+                if (heartCount < 20) {
+                    createHeart();
+                    heartCount++;
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
